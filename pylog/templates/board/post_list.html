@@ -1,0 +1,56 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center; /* Center align all table cells */
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        /* Set a minimum width for the title column */
+        td.title {
+            width: 50%; /* Adjust this value as needed */
+            white-space: nowrap; /* Prevent text from wrapping */
+            overflow: hidden; /* Hide overflowed text */
+            text-overflow: ellipsis; /* Add ellipsis if text is too long */
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <span>pylog</span>
+        <a href="/board/create/" class="btn btn-primary">글 작성</a>
+    </div>
+    <div id="post-list">
+        <table>
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>게시 날짜</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in posts %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td class="title"><a href="/board/{{ post.id }}/">{{ post.title }}</a></td>
+                        <td>{{ post.author }}</td>
+                        <td>{{ post.created_at }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

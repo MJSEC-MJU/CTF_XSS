@@ -1,0 +1,49 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        #post-detail {
+            margin-bottom: 50px; /* 버튼을 페이지 아래로 밀어내기 위해 여백 추가 */
+        }
+        .btn-back {
+            display: block;
+            width: 200px;
+            margin: 20px auto; /* 가운데 정렬 */
+            padding: 10px;
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .btn-back:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <span>{{ post.title }}</span>
+        
+    </div>
+    <div id="post-detail">
+        <p>{{ post.content|linebreaksbr }}</p>
+        <ul class="comments">
+            {% for comment in post.comments.all %}
+                <li class="comment">{{ comment.content }}</li>
+            {% empty %}
+                <li class="comment-empty">아직 댓글이 없습니다</li>
+            {% endfor %}
+        </ul>
+        <form method="POST">
+            {% csrf_token %}
+            <textarea name="comment" required></textarea>
+            <button type="submit" class="btn btn-primary">댓글 작성</button>
+        </form>
+    </div>
+    <a href="{% url 'board:post_list' %}" class="btn-back">목록으로 돌아가기</a>
+</body>
+</html>

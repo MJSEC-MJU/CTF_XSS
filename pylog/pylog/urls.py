@@ -17,10 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from .views import redirect_based_on_login
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('', redirect_based_on_login, name='redirect_based_on_login'),
     path('admin/', admin.site.urls),
     path('user/', include('user.urls')),
     path('board/', include('board.urls')),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# 추가
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

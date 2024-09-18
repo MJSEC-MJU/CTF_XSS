@@ -33,7 +33,7 @@
         <p>{{ post.content|linebreaksbr }}</p>
         <ul class="comments">
             {% for comment in post.comments.all %}
-                <li class="comment">{{ comment.content }}</li>
+                <li class="comment">[{{comment.author}}]:       {{ comment.content }}</li>
             {% empty %}
                 <li class="comment-empty">아직 댓글이 없습니다</li>
             {% endfor %}

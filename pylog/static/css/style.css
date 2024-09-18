@@ -20,7 +20,7 @@ html {
   margin: 0;
   font-family: "Noto Sans KR", serif;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 20px;
   color: #333;
   height: 100%; }
 
@@ -51,7 +51,7 @@ body {
   align-items: center;
   background-color: rgba(255, 255, 255, 0.9);
   color: #666;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   height: 59px;
   border-bottom: 1px solid #ddd; }
   #navbar > span {
@@ -94,7 +94,7 @@ a.btn {
     background-color: #bbb; }
 
 ul.comments {
-  font-size: 12px; }
+  font-size: 16px; }
   ul.comments > div {
     border-top: 1px solid #eee;
     margin-top: 30px;

@@ -23,12 +23,36 @@
             overflow: hidden; /* Hide overflowed text */
             text-overflow: ellipsis; /* Add ellipsis if text is too long */
         }
+        #navbar {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Space between buttons */
+        }
+        .btn {
+        padding: 10px 20px;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+        display: inline-block;
+        margin-right: 10px; /* 버튼 사이 간격 추가 */
+        }
+        .btn-primary {
+        margin-right: 120px;
+        background-color: #007bff;
+        }
+        .btn-danger {
+        margin-right: 10px;
+        background-color: #dc3545;
+        }
+
     </style>
 </head>
 <body>
     <div id="navbar">
         <span>pylog</span>
         <a href="/board/create/" class="btn btn-primary">글 작성</a>
+        <a href="{% url 'user:logout' %}" class="btn btn-danger">로그아웃</a> <!-- 로그아웃 버튼 추가 -->
     </div>
     <div id="post-list">
         <table>

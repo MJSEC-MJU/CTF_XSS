@@ -11,7 +11,7 @@
 2. 프로젝트 클론:
     ```sh
     git clone https://github.com/MJSEC-MJU/CTF_XSS.git
-    cd CTF_XSS
+    cd CTF_XSS/pylog
     ```
 
 ## 가상환경 설정

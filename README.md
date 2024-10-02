@@ -40,8 +40,15 @@
 ## 도커 컨테이너 실행
 1. Docker Compose 빌드 및 실행:
     ```sh
-    docker-compose build
-    docker-compose up -d
+    sudo docker-compose build
+    sudo docker-compose up -d
+    ```
+이제 프로젝트가 Docker 컨테이너에서 실행됩니다.
+
+## 도커 컨테이너에서 관리자 계정생성
+1. Docker 컨테이너 진입 및 생성
+   ```sh
+    sudo docker-compose exec web /bin/sh
+    python manage.py creatsuperuser
     ```
 
-이제 프로젝트가 Docker 컨테이너에서 실행됩니다.

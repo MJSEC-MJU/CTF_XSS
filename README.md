@@ -49,6 +49,6 @@
 1. Docker 컨테이너 진입 및 생성
    ```sh
     sudo docker-compose exec web /bin/sh
-    python manage.py creatsuperuser
+    python manage.py createsuperuser
     ```
 

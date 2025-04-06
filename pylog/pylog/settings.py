@@ -28,7 +28,7 @@ DEBUG = False
 
 CSRF_TRUSTED_ORIGINS = ['http://xss.mjsec.kr:8000']
 
-ALLOWED_HOSTS = ["http://xss.mjsec.kr:8000"]
+ALLOWED_HOSTS = ["xss.mjsec.kr"]
 
 
 # Application definition

@@ -6,6 +6,10 @@
     sudo apt update
     sudo apt install docker.io
     sudo systemctl enable --now docker
+    sudo curl -L "https://github.com/docker/compose/releases/download/v2.21.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    sudo chmod +x /usr/local/bin/docker-compose
+    sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+    docker-compose --version
     ```
 
 2. 프로젝트 클론:
@@ -36,8 +40,15 @@
 ## 도커 컨테이너 실행
 1. Docker Compose 빌드 및 실행:
     ```sh
-    docker-compose build
-    docker-compose up -d
+    sudo docker-compose build
+    sudo docker-compose up -d
+    ```
+이제 프로젝트가 Docker 컨테이너에서 실행됩니다.
+
+## 도커 컨테이너에서 관리자 계정생성
+1. Docker 컨테이너 진입 및 생성
+   ```sh
+    sudo docker-compose exec web /bin/sh
+    python manage.py createsuperuser
     ```
 
-이제 프로젝트가 Docker 컨테이너에서 실행됩니다.
